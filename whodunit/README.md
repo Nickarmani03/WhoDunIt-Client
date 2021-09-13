@@ -2,6 +2,18 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# ERD:
+
+https://dbdiagram.io/d/613786a9825b5b0146f73f2c
+
+# WIREFRAME
+
+https://wireframepro.mockflow.com/editor.jsp?editor=off&perm=Owner&projectid=M2bc5c3bd74d96e9d2e3e57844ba5b0941623328676300&publicid=e2c6d5a968064852a3ea8ab54fc9092e#/page/D8dcf881ba5f8d5e45f4bf410ba236f23
+
+## Utilities
+
+In the `utils` directory, there is a **`HumanDate`** component that you can use anywhere in your application to display a human-friendly date instead of the unfriendly format that is stored in the API database.
+
 ## Available Scripts
 
 In the project directory, you can run:
