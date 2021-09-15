@@ -4,7 +4,7 @@ export const MovieContext = createContext()
 
 export const MovieProvider = (props) => {
     const [movies, setMovies] = useState([])
-    const [movieTypes, setMovieTypes] = useState([])
+    const [genres, setGenres] = useState([])
 
     const getMovies = () => {
         return fetch("http://localhost:8000/movies", {
@@ -25,14 +25,14 @@ export const MovieProvider = (props) => {
 			.then((response) => response.json())
 	};
 
-    const getMovieTypes = () => {
-        return fetch("http://localhost:8000/movietypes", {
+    const getGenres = () => {
+        return fetch("http://localhost:8000/genres", {
             headers:{
                 "Authorization": `Token ${localStorage.getItem("whodunit_token")}`
             }
         })
          .then(res => res.json()) //turn it into json
-        .then(setMovieTypes)
+        .then(setGenres)
     }
 
     const createMovie = movie => {
@@ -60,7 +60,7 @@ export const MovieProvider = (props) => {
        }
 
     return (
-        <MovieContext.Provider value={{  movies, getMovies, movieTypes, getMovieTypes, createMovie, editMovie, getMovieById}} >
+        <MovieContext.Provider value={{  movies, getMovies, genres, getGenres, createMovie, editMovie, getMovieById}} >
             {props.children}
         </MovieContext.Provider>
     )
