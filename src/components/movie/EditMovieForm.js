@@ -1,18 +1,20 @@
 import React, { useContext, useState, useEffect } from "react"
 import { MovieContext } from "./MovieProvider"
-import { useHistory } from 'react-router'
+import { useHistory, useParams } from 'react-router'
 
-export const MovieForm = () => {
+export const EditMovieForm = () => {
     // Use the required context providers for data
 
-    const { createMovie, getGenres, genres } = useContext(MovieContext)
+    const { getGenres, genres, editMovie, getMovieById } = useContext(MovieContext)
 
     const { getSuspects, suspects } = useContext(MovieContext)
 
     const history = useHistory()
 
+    const { movieId } = useParams();
+
     // Component state
-    const [currentMovie, setMovie] = useState({
+    const [currentMovie, setCurrentMovie] = useState({
 
         name: "",
         year: "",
@@ -23,21 +25,37 @@ export const MovieForm = () => {
         director: "",
         rating: "",
         suspectId: 0
+
     })
 
     useEffect(() => {
-        getGenres() .then(getSuspects())
+        getGenres().then(getSuspects())
     }, [])
 
-    
+    useEffect(() => {
+        if (movieId) {
+            getMovieById(movieId).then((movie) => {
+                setCurrentMovie({
+                    id: parseInt(movieId),
+                    name: movie.name,
+                    year: movie.year,
+                    description: movie.description,
+                    genreId: movie.genre.id,
+                    numberOfPlayers: movie.number_of_players,
+                    director: movie.director,
+                    rating: movie.rating,
+                    suspectId: movie.suspect.id
+                })
+            })
+        }
+    }, [movieId])
+
 
     const changeMovieState = (event) => {
-        const newMovie = { ...currentMovie }// Create copy
-        newMovie[event.target.name] = event.target.value// Modify copy
-        setMovie(newMovie)// Set copy as new Movie state
+        const newMovieState = { ...currentMovie }// Create copy
+        newMovieState[event.target.name] = event.target.value// Modify copy
+        setCurrentMovie(newMovieState)// Set copy as new Movie state
     }
-
-
 
     return (
         <form className="movieForm">
@@ -56,7 +74,7 @@ export const MovieForm = () => {
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="title">Movie Year: </label>
+                    <label htmlFor="year">Movie Year: </label>
                     <input type="text" name="year" required autoFocus className="form-control"
                         placeholder="Year the movie debuted"
                         value={currentMovie.year}
@@ -78,18 +96,18 @@ export const MovieForm = () => {
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="title">Type of Movie: </label>
-                    <select  type="select" name="genreId" required autoFocus className="form-control" 
-                    value={currentMovie.genreId} onChange={changeMovieState}>
+                    <label htmlFor="genre">Type of Movie: </label>
+                    <select type="select" name="genreId" required autoFocus className="form-control"
+                        value={currentMovie.genreId} onChange={changeMovieState}>
                         <option value="0">Select a Genre</option>
                         {genres.map((genre => {
-                                return <option key={genre.id} value={genre.id}>
-                                    {genre.label}
-                                </option>
-                            }))}
-                        </select>
+                            return <option key={genre.id} value={genre.id}>
+                                {genre.label}
+                            </option>
+                        }))}
+                    </select>
                 </div>
-            </fieldset>            
+            </fieldset>
 
             <fieldset>
                 <div className="form-group">
@@ -101,10 +119,10 @@ export const MovieForm = () => {
                     />
                 </div>
             </fieldset>
-            
+
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="title">Movie Director: </label>
+                    <label htmlFor="director">Movie Director: </label>
                     <input type="text" name="director" required autoFocus className="form-control"
                         placeholder="Director of the Movie"
                         value={currentMovie.director}
@@ -112,7 +130,6 @@ export const MovieForm = () => {
                     />
                 </div>
             </fieldset>
-
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="rating">Movie Rating: </label>
@@ -138,13 +155,16 @@ export const MovieForm = () => {
                     </select>
                 </div>
             </fieldset>
-            
-            <button type="submit"
+
+            <button
+                type="submit"
                 onClick={(evt) => {
-                    // Prevents form from being submitted
+                    // Prevent form from being submitted
                     evt.preventDefault()
 
-                    createMovie({//whats being passed to the back end
+                    editMovie({
+
+                        id: currentMovie.id,
                         name: currentMovie.name,
                         year: currentMovie.year,
                         description: currentMovie.description,
@@ -154,11 +174,12 @@ export const MovieForm = () => {
                         rating: currentMovie.rating,
                         suspectId: parseInt(currentMovie.suspectId)
                     })
-                    // Send POST request to your API
-                    
-                    .then(() => history.push("/movies"))
+                        // Send POST request to your API
+
+                        .then(() => history.push("/movies"));
                 }}
-                className="btn btn-1"> Create Movie </button>
+                className="btn btn-1"> Edit </button>
         </form>
     )
 }
+

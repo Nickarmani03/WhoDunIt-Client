@@ -5,6 +5,7 @@ export const MovieContext = createContext()
 export const MovieProvider = (props) => {
     const [movies, setMovies] = useState([])
     const [genres, setGenres] = useState([])
+    const [suspects, setSuspects] = useState([])
 
     const getMovies = () => {
         return fetch("http://localhost:8000/movies", {
@@ -35,6 +36,16 @@ export const MovieProvider = (props) => {
         .then(setGenres)
     }
 
+    const getSuspects = () => {
+        return fetch("http://localhost:8000/suspects", {
+            headers:{
+                "Authorization": `Token ${localStorage.getItem("whodunit_token")}`
+            }
+        })
+         .then(res => res.json()) //turn it into json
+        .then(setSuspects)
+    }
+
     const createMovie = movie => {
         return fetch("http://localhost:8000/movies", {
             method: "POST",
@@ -60,7 +71,7 @@ export const MovieProvider = (props) => {
        }
 
     return (
-        <MovieContext.Provider value={{  movies, getMovies, genres, getGenres, createMovie, editMovie, getMovieById}} >
+        <MovieContext.Provider value={{  movies, getMovies, genres, getGenres, suspects, getSuspects, createMovie, editMovie, getMovieById}} >
             {props.children}
         </MovieContext.Provider>
     )
