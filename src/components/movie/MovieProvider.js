@@ -8,7 +8,7 @@ export const MovieProvider = (props) => {
     const [suspects, setSuspects] = useState([])
 
     const getMovies = () => {
-        return fetch("http://localhost:8000/movies", {
+        return fetch("http://localhost:8000/movie", {
             headers:{
                 "Authorization": `Token ${localStorage.getItem("whodunit_token")}`
             }
@@ -18,7 +18,7 @@ export const MovieProvider = (props) => {
     }
 
     const getMovieById = (movieId) => {
-		return fetch(`http://localhost:8000/movies/${movieId}`, {
+		return fetch(`http://localhost:8000/movie/${movieId}`, {
 			headers: {
 				Authorization: `Token ${localStorage.getItem("whodunit_token")}`,
 			},
@@ -37,7 +37,7 @@ export const MovieProvider = (props) => {
     }
 
     const getSuspects = () => {
-        return fetch("http://localhost:8000/suspects", {
+        return fetch("http://localhost:8000/suspect", {
             headers:{
                 "Authorization": `Token ${localStorage.getItem("whodunit_token")}`
             }
@@ -47,7 +47,7 @@ export const MovieProvider = (props) => {
     }
 
     const createMovie = movie => {
-        return fetch("http://localhost:8000/movies", {
+        return fetch("http://localhost:8000/movie", {
             method: "POST",
             headers:{
                 "Content-Type": "application/json",
@@ -59,7 +59,7 @@ export const MovieProvider = (props) => {
        }
 
      const editMovie = movie => {
-        return fetch(`http://localhost:8000/movies/${movie.id}`, {
+        return fetch(`http://localhost:8000/movie/${movie.id}`, {
             method: "PUT",
             headers:{
                 "Content-Type": "application/json",
