@@ -5,9 +5,8 @@ import { useHistory, useParams } from 'react-router'
 export const EditMovieForm = () => {
     // Use the required context providers for data
 
-    const { getGenres, genres, editMovie, getMovieById } = useContext(MovieContext)
+    const { getGenres, genres, editMovie, getMovieById, getSuspects, suspects } = useContext(MovieContext)
 
-    const { getSuspects, suspects } = useContext(MovieContext)
 
     const history = useHistory()
 

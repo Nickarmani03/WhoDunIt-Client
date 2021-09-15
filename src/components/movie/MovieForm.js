@@ -5,9 +5,8 @@ import { useHistory } from 'react-router'
 export const MovieForm = () => {
     // Use the required context providers for data
 
-    const { createMovie, getGenres, genres } = useContext(MovieContext)
+    const { createMovie, getGenres, genres, getSuspects, suspects  } = useContext(MovieContext)
 
-    const { getSuspects, suspects } = useContext(MovieContext)
 
     const history = useHistory()
 
