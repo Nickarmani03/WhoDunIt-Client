@@ -27,7 +27,7 @@ export const MovieForm = () => {
     useEffect(() => {
         getGenres() .then(getSuspects())
     }, [])
-
+    
     
 
     const changeMovieState = (event) => {
@@ -131,7 +131,7 @@ export const MovieForm = () => {
                         <option value="0">Select a Suspect</option>
                         {suspects.map((suspect => {
                             return <option key={suspect.id} value={suspect.id}>
-                                {suspect.label}
+                                {suspect.name}
                             </option>
                         }))}
                     </select>

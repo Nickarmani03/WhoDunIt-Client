@@ -28,7 +28,7 @@ export const EditMovieForm = () => {
     })
 
     useEffect(() => {
-        getGenres().then(getSuspects())
+        getGenres() .then(getSuspects())
     }, [])
 
     useEffect(() => {
@@ -148,7 +148,7 @@ export const EditMovieForm = () => {
                         <option value="0">Select a Suspect</option>
                         {suspects.map((suspect => {
                             return <option key={suspect.id} value={suspect.id}>
-                                {suspect.label}
+                                {suspect.name}
                             </option>
                         }))}
                     </select>
@@ -168,7 +168,8 @@ export const EditMovieForm = () => {
                         year: currentMovie.year,
                         description: currentMovie.description,
                         genreId: parseInt(currentMovie.genreId),
-                        numberOfPlayers: parseInt(currentMovie.numberOfPlayers),
+                        playerId: parseInt(currentMovie.playerId),
+                        numberOfPlayers: currentMovie.number_of_players,
                         director: currentMovie.director,
                         rating: currentMovie.rating,
                         suspectId: parseInt(currentMovie.suspectId)

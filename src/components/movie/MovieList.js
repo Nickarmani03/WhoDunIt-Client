@@ -5,6 +5,8 @@ import { useHistory } from 'react-router'
 export const MovieList = () => {
 
     const { movies, getMovies } = useContext(MovieContext)
+    // const { getGenres, genres,  getSuspects, suspects } = useContext(MovieContext)
+    
     const history = useHistory()
 
 
@@ -27,17 +29,18 @@ export const MovieList = () => {
 
                             <div className="movie__name">Movie:  {movie.name} by {movie.director}</div>
 
-                            <div className="movie__year">Created on:  {movie.year} Rated:  {movie.rating}</div>                            
+                            <div className="movie__year">Created on:  {movie.year} </div> 
+                            <div className="movie__rating">Rated:  {movie.rating} </div> 
 
                             <div className="movie__description">{movie.description} </div>
 
-                            <div className="movie__genre">{movie.genre_id} </div>
+                            <div className="movie__genre">{movie.genre.label} </div>
 
                             <div className="movie__number_of_players">Number of players needed:   {movie.number_of_players} </div>
                             
-                            <div className="movie__suspect">Who did it?:   {movie.suspect}</div>
+                            <div className="movie__suspect">Who did it?:  {movie.suspect.name}</div>
 
-                            <div className="movie__player">Whose playing? {movie.player} </div>                            
+                            <div className="movie__player">Whose playing?  {movie.user} </div>                            
 
                             <div className="movie__edit">
                                 <button className="btn btn-3"
