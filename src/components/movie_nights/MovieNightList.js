@@ -5,7 +5,7 @@ import "./MovieNight.css"
 
 export const MovieNightList = () => {
     const history = useHistory()
-    const { movieNights, getMovieNights} = useContext(MovieNightContext)
+    const { movieNights, getMovieNights } = useContext(MovieNightContext)
     const { leaveMovieNight, joinMovieNight } = useContext(MovieNightContext)
 
     useEffect(() => {
@@ -28,40 +28,30 @@ export const MovieNightList = () => {
                     return <section key={movie_night.id} className="registration">
                         <div className="registration__movie">{movie_night.movie.title}</div>
                         <div>{movie_night.description}</div>
-                        <div>
-                            {movie_night.date} @ {movie_night.time}
+                        <div className="registration__movie">{movie_night.movie.name}</div>
+                        {/* <div>{movie_night.description}</div> */}
+                        <div> Please join our Movie Night, {
+                            new Date(movie_night.date).toLocaleDateString("en-US",
+                                {
+                                    weekday: 'long',
+                                    year: 'numeric',
+                                    month: 'long',
+                                    day: 'numeric'
+                                })
+                        } @ {movie_night.time}
                         </div>
                         {
                             movie_night.joined
                                 ? <button className="btn btn-3"
                                     onClick={() => leaveMovieNight(movie_night.id)}
-                                    >Leave</button>
+                                >Leave</button>
                                 : <button className="btn btn-2"
                                     onClick={() => joinMovieNight(movie_night.id)}
-                                    >Join</button>
+                                >Join</button>
                         }
                     </section>
                 })
             }
-            {
-                movieNights.map(movie_night => {
-                    return <section key={movie_night.id} className="registration">
-                        <div className="registration__movie">{movie_night.movie.name}</div>
-                        <div>{movie_night.description}</div>
-                        <div> Please join our Movie Night, {
-                                new Date(movie_night.date).toLocaleDateString("en-US",
-                                    {
-                                        weekday: 'long',
-                                        year: 'numeric',
-                                        month: 'long',
-                                        day: 'numeric'
-                                    })
-                            } @ {movie_night.time}
-                        </div>
-                    </section>
-                })
-            }
-           
         </article >
     )
 }

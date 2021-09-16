@@ -27,9 +27,9 @@ export const MovieNightProvider = (props) => {
     }
 
     const leaveMovieNight = movieNightId => {
-        return fetch(`http://localhost:8000/movie_night/${ movieNightId }/signup`, {
+        return fetch(`http://localhost:8000/movie_night/${movieNightId}/signup`, {
             method: "DELETE",
-            headers:{
+            headers: {
                 "Authorization": `Token ${localStorage.getItem("whodunit_token")}`,
                 "Content-Type": "application/json"
             }
@@ -37,11 +37,11 @@ export const MovieNightProvider = (props) => {
             // .then(response => response.json())
             .then(getMovieNights)
     }
-    
+
     const joinMovieNight = movieNightId => {
-        return fetch(`http://localhost:8000/movie_night/${ movieNightId }/signup`, {
+        return fetch(`http://localhost:8000/movie_night/${movieNightId}/signup`, {
             method: "POST",
-            headers:{
+            headers: {
                 "Authorization": `Token ${localStorage.getItem("whodunit_token")}`,
                 "Content-Type": "application/json"
             }
@@ -53,7 +53,7 @@ export const MovieNightProvider = (props) => {
     return (
         <MovieNightContext.Provider value={
             {
-                movieNights, getMovieNights, createMovieNight , joinMovieNight, leaveMovieNight
+                movieNights, getMovieNights, createMovieNight, joinMovieNight, leaveMovieNight
             }
         }>
             {props.children}
