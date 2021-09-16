@@ -13,40 +13,7 @@ export const Profile = () => {
     }, []);
 
     return (
-//         <>
-//             <header className="profile__new">
-//                 <h1>WhoDunIt Profiles</h1>
-//             </header>
-
-//             <article className="profiles">
-//                 {
-//                     profile.map(profile => {
-//                         return <div className="profile" id={`profile--${profile.id}`} key={profile.id}>
-//                             <div className="profile__name">Name: {profile.user.first_name} {profile.user.last_name}</div>
-
-//                             <img src={profile.profile_image_url} alt="ProfilePic" />
-
-//                             <div className="profile__bio">Bio:  {profile.user.bio}</div>
-
-//                             <div className="profile__username">Username: {profile.user.username}</div>
-//                             <div>Email: {profile.user.email}</div>
-
-//                             <div>Profile Type: {
-//                                 profile.is_staff
-//                             }
-//                             </div>
-
-//                         </div>
-
-//                     })
-//                 }
-//             </article>
-//         </>
-
-//     );
-// };
-
-<article className="profile">
+        <article className="profile">
             <header>
                 <h1>Your Profile</h1>
             </header>
