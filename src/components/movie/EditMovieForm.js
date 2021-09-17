@@ -18,8 +18,7 @@ export const EditMovieForm = () => {
         name: "",
         year: "",
         description: "",
-        genreId: 0,
-        player: localStorage.getItem("whodunit_token"),
+        genreId: 0,        
         numberOfPlayers: 0,
         director: "",
         rating: "",
@@ -28,7 +27,7 @@ export const EditMovieForm = () => {
     })
 
     useEffect(() => {
-        getGenres().then(getSuspects())
+        getGenres() .then(getSuspects())
     }, [])
 
     useEffect(() => {
@@ -43,7 +42,8 @@ export const EditMovieForm = () => {
                     numberOfPlayers: movie.number_of_players,
                     director: movie.director,
                     rating: movie.rating,
-                    suspectId: movie.suspect.id
+                    suspectId: movie.suspect.id,
+                    
                 })
             })
         }
@@ -140,6 +140,8 @@ export const EditMovieForm = () => {
                 </div>
             </fieldset>
 
+            
+
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="suspect">Suspect: </label>
@@ -148,7 +150,7 @@ export const EditMovieForm = () => {
                         <option value="0">Select a Suspect</option>
                         {suspects.map((suspect => {
                             return <option key={suspect.id} value={suspect.id}>
-                                {suspect.label}
+                                {suspect.name}
                             </option>
                         }))}
                     </select>
@@ -168,17 +170,22 @@ export const EditMovieForm = () => {
                         year: currentMovie.year,
                         description: currentMovie.description,
                         genreId: parseInt(currentMovie.genreId),
-                        numberOfPlayers: parseInt(currentMovie.numberOfPlayers),
+                        numberOfPlayers: currentMovie.numberOfPlayers,
                         director: currentMovie.director,
                         rating: currentMovie.rating,
                         suspectId: parseInt(currentMovie.suspectId)
                     })
                         // Send POST request to your API
 
-                        .then(() => history.push("/movies"));
+                        .then(() => history.push("/movie"));
                 }}
                 className="btn btn-1"> Edit </button>
         </form>
     )
 }
+
+
+// const clearForm = () => { 
+//     document.getElementById("categoryForm").reset();
+//   }
 
