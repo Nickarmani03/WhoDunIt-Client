@@ -17,10 +17,10 @@ export const MovieForm = () => {
         year: "",
         description: "",
         genreId: 0,
-        player: localStorage.getItem("whodunit_token"),
         numberOfPlayers: 0,
         director: "",
         rating: "",
+        movieImageUrl:"",
         suspectId: 0
     })
 
@@ -125,6 +125,17 @@ export const MovieForm = () => {
 
             <fieldset>
                 <div className="form-group">
+                    <label htmlFor="movieImageUrl">Movie Poster: </label>
+                    <input type="text" name="movieImageUrl" required autoFocus className="form-control"
+                        placeholder="Image"
+                        value={currentMovie.movieImageUrl}
+                        onChange={changeMovieState}
+                    />
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <div className="form-group">
                     <label htmlFor="suspect">Suspect: </label>
                     <select type="select" name="suspectId" required autoFocus className="form-control"
                         value={currentMovie.suspectId} onChange={changeMovieState}>
@@ -151,11 +162,12 @@ export const MovieForm = () => {
                         numberOfPlayers: parseInt(currentMovie.numberOfPlayers),
                         director: currentMovie.director,
                         rating: currentMovie.rating,
+                        movieImageUrl: currentMovie.movieImageUrl,
                         suspectId: parseInt(currentMovie.suspectId)
                     })
                     // Send POST request to your API
                     
-                    .then(() => history.push("/movies"))
+                    .then(() => history.push("/movie"))
                 }}
                 className="btn btn-1"> Create Movie </button>
         </form>
