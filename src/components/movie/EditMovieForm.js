@@ -23,6 +23,7 @@ export const EditMovieForm = () => {
         numberOfPlayers: 0,
         director: "",
         rating: "",
+        movieImageUrl: "",
         suspectId: 0
 
     })
@@ -43,6 +44,7 @@ export const EditMovieForm = () => {
                     numberOfPlayers: movie.number_of_players,
                     director: movie.director,
                     rating: movie.rating,
+                    movieImageUrl: movie.movie_image_url,
                     suspectId: movie.suspect.id,
                     
                 })
@@ -174,6 +176,7 @@ export const EditMovieForm = () => {
                         numberOfPlayers: currentMovie.numberOfPlayers,
                         director: currentMovie.director,
                         rating: currentMovie.rating,
+                        movieImageUrl: currentMovie.movieImageUrl,
                         suspectId: parseInt(currentMovie.suspectId)
                     })
                         // Send POST request to your API
