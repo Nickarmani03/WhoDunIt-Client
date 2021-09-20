@@ -3,11 +3,11 @@
   }
   
 .registration {
-    border: 1px dotted lightseagreen;
+    border: 1px dotted#6b0707;
     padding: 1rem;
 }
 
-.registration__game {
+.registration__movie {
     font-family: "Patua One";
     font-weight: bold;
     letter-spacing: 0.15rem;
@@ -19,8 +19,8 @@
     flex-basis: 28%;
     margin: 1em;
     padding: 1em;
-    border: 5px solid rgb(50, 20, 155);
-    background-color: rgb(93, 175, 230, .9);    
+    border: 5px solid #6b0707;
+    background-color: rgba(230, 97, 93, 0.9);    
     color: #fff;
     text-align: center;
     font-family: "Comfortaa", Arial, sans-serif;

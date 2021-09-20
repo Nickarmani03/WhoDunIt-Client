@@ -1,0 +1,16 @@
+.landing {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;    
+  }
+  
+  .landing {
+    flex-basis: 28%;
+    margin: 1em;
+    padding: 1em;
+    border: 5px solid #f51111;
+    background-color: rgba(0,0,0,.6);
+    color: #fff;    
+    text-align: center;
+    font-family: "Comfortaa", Arial, sans-serif;      
+  }

@@ -9,6 +9,8 @@ import { MovieNightProvider } from "./movie_nights/MovieNightProvider.js"
 import { MovieNightForm } from "./movie_nights/MovieNightForm.js"
 import { ProfileProvider } from "./auth/ProfileProvider.js"
 import { Profile } from "./auth/Profile.js"
+import { Landing } from "./auth/Landing.js"
+import { LandingProvider } from "./auth/LandingProvider.js"
 
 
 export const ApplicationViews = () => {
@@ -17,13 +19,19 @@ export const ApplicationViews = () => {
       margin: "5rem 2rem",
       lineHeight: "1.75rem"
     }}>
-      <MovieProvider>
-        
-          <Route exact path="/movie">
-            <MovieList />
-          </Route>
-       
 
+      <LandingProvider>
+        <Route exact path="/">
+          <Landing />
+        </Route>
+      </LandingProvider>
+
+      <MovieProvider>
+
+        <Route exact path="/movie">
+          <MovieList />
+        </Route>
+        
         <Route exact path="/movies/new">
           <MovieForm />
         </Route>
