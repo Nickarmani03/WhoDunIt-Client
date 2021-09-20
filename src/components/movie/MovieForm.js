@@ -1,11 +1,12 @@
 import React, { useContext, useState, useEffect } from "react"
 import { MovieContext } from "./MovieProvider"
 import { useHistory } from 'react-router'
+import "./Movie.css"
 
 export const MovieForm = () => {
     // Use the required context providers for data
 
-    const { createMovie, getGenres, genres, getSuspects, suspects  } = useContext(MovieContext)
+    const { createMovie, getGenres, genres, getSuspects, suspects } = useContext(MovieContext)
 
 
     const history = useHistory()
@@ -20,15 +21,15 @@ export const MovieForm = () => {
         numberOfPlayers: 0,
         director: "",
         rating: "",
-        movieImageUrl:"",
+        movieImageUrl: "",
         suspectId: 0
     })
 
     useEffect(() => {
-        getGenres() .then(getSuspects())
+        getGenres().then(getSuspects())
     }, [])
-    
-    
+
+
 
     const changeMovieState = (event) => {
         const newMovie = { ...currentMovie }// Create copy
@@ -78,17 +79,17 @@ export const MovieForm = () => {
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="title">Type of Movie: </label>
-                    <select  type="select" name="genreId" required autoFocus className="form-control" 
-                    value={currentMovie.genreId} onChange={changeMovieState}>
+                    <select type="select" name="genreId" required autoFocus className="form-control"
+                        value={currentMovie.genreId} onChange={changeMovieState}>
                         <option value="0">Select a Genre</option>
                         {genres.map((genre => {
-                                return <option key={genre.id} value={genre.id}>
-                                    {genre.label}
-                                </option>
-                            }))}
-                        </select>
+                            return <option key={genre.id} value={genre.id}>
+                                {genre.label}
+                            </option>
+                        }))}
+                    </select>
                 </div>
-            </fieldset>            
+            </fieldset>
 
             <fieldset>
                 <div className="form-group">
@@ -100,7 +101,7 @@ export const MovieForm = () => {
                     />
                 </div>
             </fieldset>
-            
+
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="title">Movie Director: </label>
@@ -148,7 +149,7 @@ export const MovieForm = () => {
                     </select>
                 </div>
             </fieldset>
-            
+
             <button type="submit"
                 onClick={(evt) => {
                     // Prevents form from being submitted
@@ -165,9 +166,9 @@ export const MovieForm = () => {
                         movieImageUrl: currentMovie.movieImageUrl,
                         suspectId: parseInt(currentMovie.suspectId)
                     })
-                    // Send POST request to your API
-                    
-                    .then(() => history.push("/movie"))
+                        // Send POST request to your API
+
+                        .then(() => history.push("/movie"))
                 }}
                 className="btn btn-1"> Create Movie </button>
         </form>

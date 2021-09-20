@@ -31,7 +31,7 @@ export const MovieList = () => {
                         return <section key={`movie--${movie.id}`} className="movie">
 
                             
-                            <div className="movie__name">
+                            <div className="movie__image">
                             <img src={movie.movie_image_url}></img></div>
                             <div className="movie__name">Movie:  {movie.name} by {movie.director}</div>
 

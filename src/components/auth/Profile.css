@@ -1,5 +1,7 @@
 .profile {
-	background-image: url(http://cdn.shopify.com/s/files/1/1221/6520/t/2/assets/hero_slide_1_1024x1024.jpg?v=17678322770933107123)
+	background-image: url(http://cdn.shopify.com/s/files/1/1221/6520/t/2/assets/hero_slide_1_1024x1024.jpg?v=17678322770933107123);
+    background-repeat:no-repeat;
+    background-size: 1300px 500px;
   }
   
 .registration {
@@ -20,7 +22,7 @@
     margin: 1em;
     padding: 1em;
     border: 5px solid #6b0707;
-    background-color: rgba(230, 97, 93, 0.9);    
+    background-color: #6b0707;    
     color: #fff;
     text-align: center;
     font-family: "Comfortaa", Arial, sans-serif;
