@@ -6,7 +6,7 @@ import "./Movie.css"
 export const SuspectForm = () => {
     // Use the required context providers for data
 
-    const {  suspects,  getSuspects} = useContext(SuspectContext)
+    const { suspects, getSuspects, guiltys, getGuiltys, } = useContext(SuspectContext)
 
 
     const history = useHistory()
@@ -14,14 +14,14 @@ export const SuspectForm = () => {
     // Component state
     const [currentSuspect, setSuspect] = useState({
 
-        name: "",       
-        description: "",        
-        isGuilty: ""
-      
+        name: "",
+        description: "",
+        guiltyId: 0,
+
     })
 
     useEffect(() => {
-        getSuspects()
+        getSuspects().then(getGuiltys())
     }, [])
 
 
@@ -62,13 +62,13 @@ export const SuspectForm = () => {
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="suspect">Suspect: </label>
-                    <select type="select" name="suspectId" required autoFocus className="form-control"
-                        value={currentSuspect.suspectId} onChange={changeSuspectState}>
-                        <option value="0">Select a Suspect</option>
-                        {suspects.map((suspect => {
-                            return <option key={suspect.id} value={suspect.id}>
-                                {suspect.name}
+                    <label htmlFor="title">Type of Movie: </label>
+                    <select type="select" name="guiltyId" required autoFocus className="form-control"
+                        value={currentMovie.guiltyId} onChange={changeMovieState}>
+                        <option value="0">Select a Guilty Status</option>
+                        {guiltys.map((guilty => {
+                            return <option key={guilty.id} value={guilty.id}>
+                                {guilty.label}
                             </option>
                         }))}
                     </select>
@@ -82,8 +82,9 @@ export const SuspectForm = () => {
 
                     createSuspect({//whats being passed to the back end
                         name: currentSuspect.name,
-                        description: currentSuspect.description,                       
-                        suspectId: parseInt(currentSuspect.suspectId)
+                        description: currentSuspect.description,
+                        guiltyId: parseInt(currentMovie.guiltyId),
+                        // suspectId: parseInt(currentSuspect.suspectId)
                     })
                         // Send POST request to your API
 

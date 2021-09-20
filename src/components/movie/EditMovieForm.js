@@ -8,7 +8,6 @@ export const EditMovieForm = () => {
 
     const { getGenres, genres, editMovie, getMovieById, getSuspects, suspects } = useContext(MovieContext)
 
-
     const history = useHistory()
 
     const { movieId } = useParams();
@@ -45,8 +44,7 @@ export const EditMovieForm = () => {
                     director: movie.director,
                     rating: movie.rating,
                     movieImageUrl: movie.movie_image_url,
-                    suspectId: movie.suspect.id,
-                    
+                    suspectId: movie.suspect.id,                    
                 })
             })
         }
