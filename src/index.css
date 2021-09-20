@@ -99,12 +99,14 @@ code {
 
 /* Button 1 */
 .btn-1 {
-	background: #3498db;
-	color: #fff;
+	background-color: rgb(15, 15, 15);
+	color: #2980b9;
+	border: 3px solid #2980b9; /* Blue */
 }
 
 .btn-1:hover {
 	background: #2980b9;
+	color: black;
 }
 
 .btn-1:active {
@@ -117,9 +119,9 @@ code {
 	height: 100%;
 	left: 0;
 	top: 0;
-	line-height: 1.75;
+	line-height: 1.7;
 	font-size: 140%;
-	width: 60px;
+	width: 80px;
 }
 
 /* Button 2 */
