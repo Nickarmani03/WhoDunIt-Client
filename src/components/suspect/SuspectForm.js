@@ -1,12 +1,12 @@
 import React, { useContext, useState, useEffect } from "react"
 import { SuspectContext } from "./SuspectProvider"
 import { useHistory } from 'react-router'
-import "./Movie.css"
+import "./Suspect.css"
 
 export const SuspectForm = () => {
     // Use the required context providers for data
 
-    const { suspects, getSuspects, guiltys, getGuiltys, } = useContext(SuspectContext)
+    const { createSuspect, getSuspects, guiltys, getGuiltys, } = useContext(SuspectContext)
 
 
     const history = useHistory()
@@ -64,7 +64,7 @@ export const SuspectForm = () => {
                 <div className="form-group">
                     <label htmlFor="title">Type of Movie: </label>
                     <select type="select" name="guiltyId" required autoFocus className="form-control"
-                        value={currentMovie.guiltyId} onChange={changeMovieState}>
+                        value={currentSuspect.guiltyId} onChange={changeSuspectState}>
                         <option value="0">Select a Guilty Status</option>
                         {guiltys.map((guilty => {
                             return <option key={guilty.id} value={guilty.id}>
@@ -83,7 +83,7 @@ export const SuspectForm = () => {
                     createSuspect({//whats being passed to the back end
                         name: currentSuspect.name,
                         description: currentSuspect.description,
-                        guiltyId: parseInt(currentMovie.guiltyId),
+                        guiltyId: parseInt(currentSuspect.guiltyId),
                         // suspectId: parseInt(currentSuspect.suspectId)
                     })
                         // Send POST request to your API
