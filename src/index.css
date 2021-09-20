@@ -5,6 +5,7 @@ body {
 background-image: url(https://www.media3.hw-static.com/media/2021/06/seats1-web-1800x1200.jpg);
 background-repeat:no-repeat;
 background-attachment: fixed;
+background-size: 2000px 980px;
 }
 
 body, button, input, select, textarea {
