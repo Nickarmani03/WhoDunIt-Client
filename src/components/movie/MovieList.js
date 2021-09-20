@@ -31,7 +31,7 @@ export const MovieList = () => {
                         return <section key={`movie--${movie.id}`} className="movie">
 
                             
-                            <div className="movie__name">
+                            <div className="movie__image">
                             <img src={movie.movie_image_url}></img></div>
                             <div className="movie__name">Movie:  {movie.name} by {movie.director}</div>
 
@@ -46,7 +46,7 @@ export const MovieList = () => {
 
                             <div className="movie__suspect">Who did it?:  {movie.suspect.name}</div>
 
-                            <div className="movie__player">Whose playing?  {movie.player.user.username} </div>
+                            <div className="movie__player">This move was added by:   {movie.player.user.username} </div>
 
                             <div className="movie__edit">
                                 <button className="btn btn-3"

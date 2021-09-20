@@ -18,13 +18,17 @@ export const Profile = () => {
                 <h1>Your Profile</h1>
             </header>
             <section className="profile__info">
-                <header className="profile__header">
+                <div className="profile__header">
                     <h3>Your Info</h3>
-                </header>
+                </div>
                 <div className="profile__name">
                     Welcome: {profile.player && profile.player.user.first_name} {profile.player && profile.player.user.last_name}
                 </div>
                 <div className="profile__username">Username: {profile.player && profile.player.user.username}</div>
+
+                <div className="profile__image">
+                            <img src={profile.profile_image_url}></img></div>
+
                 <div className="profile__bio">About you: {profile.player && profile.player.bio}</div>
             </section>
             <section className="profile__registrations">

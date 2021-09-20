@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react"
 import { MovieContext } from "./MovieProvider"
 import { useHistory, useParams } from 'react-router'
+import "./Movie.css"
 
 export const EditMovieForm = () => {
     // Use the required context providers for data
