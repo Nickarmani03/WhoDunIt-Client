@@ -18,7 +18,9 @@ export const Landing = () => {
         <article className="landing">
             <header>
                 <h1>Welcome to WhoDunIt</h1>
-                <div className="landing__username">Welcome: {landing.player?.user.username}, see if you can beat WhoDunIt and solve the crime</div>
+                <div className="landing__user">Welcome: </div>
+                <div className="landing__username">{landing.player?.user.username}</div>
+                <div className="landing__user">Let's see if you can beat WhoDunIt and solve the crime</div>
 
             </header>
             <div className="landing__info">

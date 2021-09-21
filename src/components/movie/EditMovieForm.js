@@ -6,8 +6,8 @@ import "./Movie.css"
 export const EditMovieForm = () => {
     // Use the required context providers for data
 
-    const { getGenres, genres, editMovie, getMovieById, getSuspects, suspects } = useContext(MovieContext)
-
+    const { getGenres, genres, editMovie, getMovieById } = useContext(MovieContext)
+// , getSuspects, suspects
     const history = useHistory()
 
     const { movieId } = useParams();
@@ -23,12 +23,13 @@ export const EditMovieForm = () => {
         director: "",
         rating: "",
         movieImageUrl: "",
-        suspectId: 0
+        // suspectId: 0
 
     })
 
     useEffect(() => {
-        getGenres() .then(getSuspects())
+        getGenres() 
+        // .then(getSuspects())
     }, [])
 
     useEffect(() => {
@@ -44,7 +45,7 @@ export const EditMovieForm = () => {
                     director: movie.director,
                     rating: movie.rating,
                     movieImageUrl: movie.movie_image_url,
-                    suspectId: movie.suspect.id,                    
+                    // suspectId: movie.suspect.id,                    
                 })
             })
         }
@@ -140,7 +141,7 @@ export const EditMovieForm = () => {
                     />
                 </div>
             </fieldset>
-
+{/* 
             
 
             <fieldset>
@@ -156,7 +157,7 @@ export const EditMovieForm = () => {
                         }))}
                     </select>
                 </div>
-            </fieldset>
+            </fieldset> */}
 
             <button
                 type="submit"
@@ -175,7 +176,7 @@ export const EditMovieForm = () => {
                         director: currentMovie.director,
                         rating: currentMovie.rating,
                         movieImageUrl: currentMovie.movieImageUrl,
-                        suspectId: parseInt(currentMovie.suspectId)
+                        // suspectId: parseInt(currentMovie.suspectId)
                     })
                         // Send POST request to your API
 

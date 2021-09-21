@@ -27,7 +27,7 @@ export const Profile = () => {
                 <div className="profile__username">Username: {profile.player && profile.player.user.username}</div>
 
                 <div className="profile__image">
-                            <img src={profile.profile_image_url}></img></div>
+                    <img src={profile.player?.profile_image_url}></img></div>
 
                 <div className="profile__bio">About you: {profile.player && profile.player.bio}</div>
             </section>

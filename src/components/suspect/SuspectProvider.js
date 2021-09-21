@@ -5,7 +5,8 @@ export const SuspectContext = createContext()
 export const SuspectProvider = (props) => {
 
     const [suspects, setSuspects] = useState([])
-    const [guilty, setGuilty] = useState([])
+    const [guilts, setGuilts] = useState([])
+    const [movies, setMovies] = useState([])
 
     const getSuspects = () => {
         return fetch("http://localhost:8000/suspect", {
@@ -26,15 +27,25 @@ export const SuspectProvider = (props) => {
             .then((response) => response.json())
     };
 
-    const getGuilty = () => {
+    const getGuilts = () => {
         return fetch("http://localhost:8000/guilty", {
             headers: {
                 "Authorization": `Token ${localStorage.getItem("whodunit_token")}`
             }
         })
             .then(res => res.json()) //turn it into json
-            .then(setGuilty)
+            .then(setGuilts)
     };
+
+    const getMovies = () => {
+        return fetch("http://localhost:8000/movie", {
+            headers:{
+                "Authorization": `Token ${localStorage.getItem("whodunit_token")}`
+            }
+        })
+        .then(res => res.json())
+        .then(setMovies)
+    }
 
     const createSuspect = suspect => {
         return fetch("http://localhost:8000/suspect", {
@@ -50,7 +61,7 @@ export const SuspectProvider = (props) => {
 
 
     return (
-        <SuspectContext.Provider value={{ suspects, getSuspects, guilty, getGuilty, createSuspect, getSuspectById }} >
+        <SuspectContext.Provider value={{ movies, getMovies, suspects, getSuspects, guilts, getGuilts, createSuspect, getSuspectById }} >
             {props.children}
         </SuspectContext.Provider>
     )

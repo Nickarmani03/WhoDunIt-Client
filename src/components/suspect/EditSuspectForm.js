@@ -1,37 +1,46 @@
 import React, { useContext, useState, useEffect } from "react"
 import { SuspectContext } from "./SuspectProvider"
-import { useHistory } from 'react-router'
+import { useHistory, useParams } from 'react-router'
 import "./Suspect.css"
 
-export const SuspectForm = () => {
+export const EditSuspectForm = () => {
     // Use the required context providers for data
 
-    const { createSuspect, getSuspects, guilts, getGuilts, } = useContext(SuspectContext)
-
+    const { getGuilts, guilts, editSuspect, getSuspectById } = useContext(SuspectContext)
 
     const history = useHistory()
 
-    // Component state
-    const [currentSuspect, setSuspect] = useState({
+    const { suspectId } = useParams();
 
+    // Component state
+    const [currentSuspect, setCurrentSuspect] = useState({
         name: "",
         guiltyId: 0,
-
     })
 
     useEffect(() => {
-        getSuspects().then(getGuilts())
+        getGuilts()
     }, [])
 
+    useEffect(() => {
+        if (suspectId) {
+            getSuspectById(suspectId).then((suspect) => {
+                setCurrentSuspect({
+                    id: parseInt(suspectId),
+                    name: suspect.name,
+                    guiltyId: suspect.guilty.id,
+
+                })
+            })
+        }
+    }, [suspectId])
 
 
     const changeSuspectState = (event) => {
-        const newSuspect = { ...currentSuspect }// Create copy
-        newSuspect[event.target.name] = event.target.value// Modify copy
-        setSuspect(newSuspect)// Set copy as new Suspect state
+        const newSuspectState = { ...currentSuspect }// Create copy
+        newSuspectState[event.target.name] = event.target.value// Modify copy
+        setCurrentSuspect(newSuspectState)// Set copy as new Suspect state
     }
-
-
 
     return (
         <form className="suspectForm">
@@ -50,10 +59,10 @@ export const SuspectForm = () => {
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="title">Type of Suspect: </label>
+                    <label htmlFor="guilty">Type of Suspect: </label>
                     <select type="select" name="guiltyId" required autoFocus className="form-control"
                         value={currentSuspect.guiltyId} onChange={changeSuspectState}>
-                        <option value="0">Select a Guilty Status</option>
+                        <option value="0">Are they Guilty Of a Crime?  </option>
                         {guilts.map((guilty => {
                             return <option key={guilty.id} value={guilty.id}>
                                 {guilty.label}
@@ -63,21 +72,29 @@ export const SuspectForm = () => {
                 </div>
             </fieldset>
 
-            <button type="submit"
+
+            <button
+                type="submit"
                 onClick={(evt) => {
-                    // Prevents form from being submitted
+                    // Prevent form from being submitted
                     evt.preventDefault()
 
-                    createSuspect({//whats being passed to the back end
+                    editSuspect({
+                        id: currentSuspect.id,
                         name: currentSuspect.name,
-                        guiltyId: parseInt(currentSuspect.guiltyId),
-                        
+                        guiltyId: parseInt(currentSuspect.guiltyId)
                     })
                         // Send POST request to your API
 
-                        .then(() => history.push("/suspect"))
+                        .then(() => history.push("/suspect"));
                 }}
-                className="btn btn-1"> Create Suspect </button>
+                className="btn btn-1"> Edit </button>
         </form>
     )
 }
+
+
+// const clearForm = () => { 
+//     document.getElementById("categoryForm").reset();
+//   }
+

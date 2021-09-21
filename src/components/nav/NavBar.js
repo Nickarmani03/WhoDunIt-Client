@@ -20,6 +20,10 @@ export const NavBar = () => {
             </li>
 
             <li className="navbar__item">
+                <Link className="navbar__link" to="/suspect">Suspects</Link>
+            </li>
+
+            <li className="navbar__item">
                 <Link className="navbar__link" to="/movie_night">Movie Night</Link>
             </li>
             
