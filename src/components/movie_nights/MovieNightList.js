@@ -29,7 +29,19 @@ export const MovieNightList = () => {
                         <div className="registration__movie">{movie_night.movie.title}</div>
                         <div>{movie_night.description}</div>
                         <div className="registration__movie">{movie_night.movie.name}</div>
-                        {/* <div>{movie_night.description}</div> */}
+                        <div>Created by: {movie_night.creator.user.first_name} {movie_night.creator.user.last_name}</div>
+
+                        {/* <div>Attended by: {movie_night.attendees.user.first_name}</div> */}
+                        {/* <div>Attended by: {movie_night.attendees.player.first_name}</div> */}
+                        {/* {
+                            attendees.map(attending => {
+                                return <section key={attending.id} className="this">
+                                    <div className="attending__name">{attending.id.user.first_name}</div>
+
+                                </section>
+                            })
+                        } */}
+
                         <div> Please join our Movie Night, {
                             new Date(movie_night.date).toLocaleDateString("en-US",
                                 {
@@ -52,6 +64,7 @@ export const MovieNightList = () => {
                     </section>
                 })
             }
+
         </article >
     )
 }

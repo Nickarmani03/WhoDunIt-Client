@@ -6,10 +6,19 @@
     color: white;
     font-size: 1rem;    
   }
-/* .suspect__image img{
-    width: 40%;
+.suspect__image img{
+    width: 60%;
     height: 5%;
-} */
+}
+
+.suspect__new {
+  margin-left: 10%;
+  margin-right:25%;
+  width: 80%;
+  text-align: center;
+  color: white;
+  font-size: 1rem;    
+}
 
 h1 {
   color: #fff;
@@ -34,8 +43,7 @@ Form__title {
     border-bottom: 3px solid #f51111;
  }
 
- .suspect
-s {
+.suspects {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;    

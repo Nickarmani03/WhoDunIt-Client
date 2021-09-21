@@ -7,6 +7,15 @@
     font-size: 1rem;    
   }
 
+  .movie_nights__header {
+    margin-left: 10%;
+    margin-right:25%;
+    width: 80%;
+    text-align: center;
+    color: white;
+    font-size: 1rem;    
+  }
+
 .MovieNightForm__title {
     height: 2em;
     padding-top: 1em;

@@ -7,13 +7,20 @@
     font-size: 1rem;    
   }
 .movie__image img{
-    width: 40%;
+    width: 50%;
     height: 5%;
 }
 
-h1 {
-  color: #fff;
- }
+.movie__new {
+  margin-left: 10%;
+  margin-right:25%;
+  width: 80%;
+  text-align: center;
+  color: white;
+  font-size: 1rem;    
+}
+
+
 
   .form {
     display: inline-block;

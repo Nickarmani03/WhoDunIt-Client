@@ -17,7 +17,8 @@ export const EditSuspectForm = () => {
         name: "",
         guiltyId: 0,
         description: "",
-        movieId: 0
+        movieId: 0,
+        suspectImageUrl: "",
     })
 
     useEffect(() => {
@@ -32,7 +33,8 @@ export const EditSuspectForm = () => {
                     name: suspect.name,
                     guiltyId: suspect.guilty.id,
                     description: suspect.description,
-                    movieId: suspect.movie.id, 
+                    movieId: suspect.movie.id,
+                    suspectImageUrl: suspect.suspect_image_url,
 
                 })
             })
@@ -66,7 +68,7 @@ export const EditSuspectForm = () => {
                     <label htmlFor="guilty">Type of Suspect: </label>
                     <select type="select" name="guiltyId" required autoFocus className="form-control"
                         value={currentSuspect.guiltyId} onChange={changeSuspectState}>
-                        <option value="0">Are they Guilty Of a Crime?  </option>
+                        <option value="0">Are they Guilty Of a Crime or Murder?  </option>
                         {guilts.map((guilty => {
                             return <option key={guilty.id} value={guilty.id}>
                                 {guilty.label}
@@ -115,6 +117,7 @@ export const EditSuspectForm = () => {
                         guiltyId: parseInt(currentSuspect.guiltyId),
                         description: currentSuspect.description,
                         movieId: parseInt(currentSuspect.movieId),
+                        suspectImageUrl: currentSuspect.suspectImageUrl,
                     })
                         // Send POST request to your API
 

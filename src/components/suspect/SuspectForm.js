@@ -17,7 +17,8 @@ export const SuspectForm = () => {
         name: "",
         guiltyId: 0,
         description: "",
-        movieId: 0
+        movieId: 0,
+        movieImageUrl: ""
 
     })
 
@@ -64,7 +65,7 @@ export const SuspectForm = () => {
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="title">Are they Guilty Of a Crime?: </label>
+                    <label htmlFor="title">Are they Guilty Of a Crime or Murder?: </label>
                     <select type="select" name="guiltyId" required autoFocus className="form-control"
                         value={currentSuspect.guiltyId} onChange={changeSuspectState}>
                         <option value="0">Select a Guilty Status</option>
@@ -76,6 +77,18 @@ export const SuspectForm = () => {
                     </select>
                 </div>
             </fieldset>
+
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="suspectImageUrl">Character Image: </label>
+                    <input type="text" name="suspectImageUrl" required autoFocus className="form-control"
+                        placeholder="Image"
+                        value={currentSuspect.suspectImageUrl}
+                        onChange={changeSuspectState}
+                    />
+                </div>
+            </fieldset>
+
 
             <fieldset>
                 <div className="form-group">
@@ -102,6 +115,7 @@ export const SuspectForm = () => {
                         guiltyId: parseInt(currentSuspect.guiltyId),
                         description: currentSuspect.description,
                         movieId: parseInt(currentSuspect.movieId),
+                        suspectImageUrl: currentSuspect.suspectImageUrl,
                         
                     })
                         // Send POST request to your API
