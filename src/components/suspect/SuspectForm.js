@@ -6,7 +6,7 @@ import "./Suspect.css"
 export const SuspectForm = () => {
     // Use the required context providers for data
 
-    const { createSuspect, getSuspects, guilts, getGuilts, } = useContext(SuspectContext)
+    const { createSuspect, getMovies, movies, guilts, getGuilts, } = useContext(SuspectContext)
 
 
     const history = useHistory()
@@ -16,11 +16,14 @@ export const SuspectForm = () => {
 
         name: "",
         guiltyId: 0,
+        description: "",
+        movieId: 0
 
     })
 
     useEffect(() => {
-        getSuspects().then(getGuilts())
+        getGuilts()
+        .then(getMovies())
     }, [])
 
 
@@ -50,13 +53,39 @@ export const SuspectForm = () => {
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="title">Type of Suspect: </label>
+                    <label htmlFor="description">Description: </label>
+                    <input type="text" name="description" required autoFocus className="form-control"
+                        placeholder="Describe the Character"
+                        value={currentSuspect.description}
+                        onChange={changeSuspectState}
+                    />
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="title">Are they Guilty Of a Crime?: </label>
                     <select type="select" name="guiltyId" required autoFocus className="form-control"
                         value={currentSuspect.guiltyId} onChange={changeSuspectState}>
                         <option value="0">Select a Guilty Status</option>
                         {guilts.map((guilty => {
                             return <option key={guilty.id} value={guilty.id}>
                                 {guilty.label}
+                            </option>
+                        }))}
+                    </select>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <div className="form-group">
+                    <label htmlFor="title">Type of Movie: </label>
+                    <select type="select" name="movieId" required autoFocus className="form-control"
+                        value={currentSuspect.movieId} onChange={changeSuspectState}>
+                        <option value="0">Select a Movie</option>
+                        {movies.map((movie => {
+                            return <option key={movie.id} value={movie.id}>
+                                {movie.name}
                             </option>
                         }))}
                     </select>
@@ -71,6 +100,8 @@ export const SuspectForm = () => {
                     createSuspect({//whats being passed to the back end
                         name: currentSuspect.name,
                         guiltyId: parseInt(currentSuspect.guiltyId),
+                        description: currentSuspect.description,
+                        movieId: parseInt(currentSuspect.movieId),
                         
                     })
                         // Send POST request to your API

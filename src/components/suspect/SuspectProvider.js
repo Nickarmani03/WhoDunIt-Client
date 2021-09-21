@@ -39,12 +39,12 @@ export const SuspectProvider = (props) => {
 
     const getMovies = () => {
         return fetch("http://localhost:8000/movie", {
-            headers:{
+            headers: {
                 "Authorization": `Token ${localStorage.getItem("whodunit_token")}`
             }
         })
-        .then(res => res.json())
-        .then(setMovies)
+            .then(res => res.json())
+            .then(setMovies)
     }
 
     const createSuspect = suspect => {
@@ -59,9 +59,21 @@ export const SuspectProvider = (props) => {
             .then(getSuspects)
     }
 
+    const editSuspect = suspect => {
+        return fetch(`http://localhost:8000/suspect/${suspect.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Token ${localStorage.getItem("whodunit_token")}`
+            },
+            body: JSON.stringify(suspect)
+        })
+            .then(getSuspects)
+    }
+
 
     return (
-        <SuspectContext.Provider value={{ movies, getMovies, suspects, getSuspects, guilts, getGuilts, createSuspect, getSuspectById }} >
+        <SuspectContext.Provider value={{ movies, getMovies, suspects, getSuspects, editSuspect, guilts, getGuilts, createSuspect, getSuspectById }} >
             {props.children}
         </SuspectContext.Provider>
     )
