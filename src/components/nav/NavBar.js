@@ -18,16 +18,16 @@ export const NavBar = () => {
             </li>
             <li className="navbar__item">
                 <Link className="navbar__link" to="/movie">My Movies</Link>
+            </li>    
+
+            <li className="navbar__item">
+                <Link className="navbar__link" to="/movie_night">Movie Night</Link>
             </li>
 
             <li className="navbar__item">
                 <Link className="navbar__link" to="/suspect">Suspects</Link>
             </li>
 
-            <li className="navbar__item">
-                <Link className="navbar__link" to="/movie_night">Movie Night</Link>
-            </li>
-            
             <li className="navbar__item">
                     <Link className="nav-link" to="/profile">Profiles</Link>
                 </li>
