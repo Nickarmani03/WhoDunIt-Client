@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react"
 import { MovieContext } from "./MovieProvider.js"
 import { useHistory } from 'react-router'
 
+
 export const MovieList = () => {
 
     const { movies, getMovies } = useContext(MovieContext)

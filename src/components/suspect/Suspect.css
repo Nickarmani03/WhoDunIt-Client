@@ -1,7 +1,7 @@
 .suspectForm {
-    margin-left: 25%;
+    margin-left: 35%;
     margin-right:25%;
-    width: 50%;
+    width: 30%;
     text-align: center;
     color: white;
     font-size: 1rem;    
@@ -32,8 +32,7 @@ h1 {
      
   }
   
-  .suspect
-Form__title {
+.suspectForm__title {
     height: 2em;
     padding-top: 1em;
     padding-bottom: 1em;
@@ -49,12 +48,11 @@ Form__title {
     justify-content: space-between;    
   }
   
-  .suspect
- {
+.suspect {
     flex-basis: 28%;
     margin: 1em;
     padding: 1em;
-    border: 5px solid #f51111;
+    border: 5px solid #6b0707;
     background-color: rgba(0,0,0,.6);
     color: #fff;    
     text-align: center;
