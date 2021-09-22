@@ -27,14 +27,14 @@ export const Profile = () => {
                 <div className="profile__username">Username: {profile.player && profile.player.user.username}</div>
 
                 <div className="profile__image">
-                            <img src={profile.profile_image_url}></img></div>
+                    <img src={profile.player?.profile_image_url}></img></div>
 
-                <div className="profile__bio">About you: {profile.player && profile.player.bio}</div>
-            </section>
-            <section className="profile__registrations">
-                <header className="registrations__header">
+                <div className="profile__bio">About you: {profile.player && profile.player.bio}</div> <header className="registrations__header">
                     <h3>Your Movie Nights</h3>
                 </header>
+            </section>
+            <section className="profile__registrations">
+               
                 <div className="registrations">
                     {
                         profile.movie_nights?.map(movie_night => {

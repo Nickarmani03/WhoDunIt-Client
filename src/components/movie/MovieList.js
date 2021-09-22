@@ -44,7 +44,7 @@ export const MovieList = () => {
 
                             <div className="movie__number_of_players">Number of players needed:   {movie.number_of_players} </div>
 
-                            <div className="movie__suspect">Who did it?:  {movie.suspect.name}</div>
+                            {/* <div className="movie__suspect">Who did it?:  {movie.suspect.name}</div> */}
 
                             <div className="movie__player">This move was added by:   {movie.player.user.username} </div>
 

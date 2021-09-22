@@ -1,4 +1,4 @@
-.movieForm {
+.suspectForm {
     margin-left: 25%;
     margin-right:25%;
     width: 50%;
@@ -6,12 +6,12 @@
     color: white;
     font-size: 1rem;    
   }
-.movie__image img{
-    width: 50%;
+.suspect__image img{
+    width: 60%;
     height: 5%;
 }
 
-.movie__new {
+.suspect__new {
   margin-left: 10%;
   margin-right:25%;
   width: 80%;
@@ -20,7 +20,9 @@
   font-size: 1rem;    
 }
 
-
+h1 {
+  color: #fff;
+ }
 
   .form {
     display: inline-block;
@@ -30,7 +32,8 @@
      
   }
   
-  .movieForm__title {
+  .suspect
+Form__title {
     height: 2em;
     padding-top: 1em;
     padding-bottom: 1em;
@@ -40,13 +43,14 @@
     border-bottom: 3px solid #f51111;
  }
 
- .movies {
+.suspects {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;    
   }
   
-  .movie {
+  .suspect
+ {
     flex-basis: 28%;
     margin: 1em;
     padding: 1em;

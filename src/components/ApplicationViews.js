@@ -3,11 +3,15 @@ import { Route } from "react-router-dom"
 import { MovieList } from "./movie/MovieList.js"
 import { MovieProvider } from "./movie/MovieProvider.js"
 import { MovieForm } from "./movie/MovieForm.js"
-import { EditMovieForm } from "./movie/EditMovieForm.js";
+import { EditMovieForm } from "./movie/EditMovieForm.js"
 import { MovieNightList } from "./movie_nights/MovieNightList.js"
 import { MovieNightProvider } from "./movie_nights/MovieNightProvider.js"
 import { MovieNightForm } from "./movie_nights/MovieNightForm.js"
 import { ProfileProvider } from "./auth/ProfileProvider.js"
+import { SuspectList } from "./suspect/SuspectList.js"
+import { SuspectProvider } from "./suspect/SuspectProvider.js"
+import { SuspectForm } from "./suspect/SuspectForm.js"
+import { EditSuspectForm } from "./suspect/EditSuspectForm.js"
 import { Profile } from "./auth/Profile.js"
 import { Landing } from "./auth/Landing.js"
 import { LandingProvider } from "./auth/LandingProvider.js"
@@ -31,7 +35,7 @@ export const ApplicationViews = () => {
         <Route exact path="/movie">
           <MovieList />
         </Route>
-        
+
         <Route exact path="/movies/new">
           <MovieForm />
         </Route>
@@ -52,6 +56,18 @@ export const ApplicationViews = () => {
           </Route>
         </MovieProvider>
       </MovieNightProvider>
+
+      <SuspectProvider>
+        <Route exact path="/suspect">
+          <SuspectList />
+        </Route>
+        <Route exact path="/suspect/new">
+          <SuspectForm />
+        </Route>
+        <Route exact path="/suspect/:suspectId(\d+)/edit">
+          <EditSuspectForm />
+        </Route>
+      </SuspectProvider>
 
       <ProfileProvider>
         <Route exact path="/profile">

@@ -6,8 +6,8 @@ import "./Movie.css"
 export const MovieForm = () => {
     // Use the required context providers for data
 
-    const { createMovie, getGenres, genres, getSuspects, suspects } = useContext(MovieContext)
-
+    const { createMovie, getGenres, genres,  } = useContext(MovieContext)
+// getSuspects, suspects
 
     const history = useHistory()
 
@@ -22,11 +22,12 @@ export const MovieForm = () => {
         director: "",
         rating: "",
         movieImageUrl: "",
-        suspectId: 0
+        // suspectId: 0
     })
 
     useEffect(() => {
-        getGenres().then(getSuspects())
+        getGenres()
+        // .then(getSuspects())
     }, [])
 
 
@@ -135,7 +136,7 @@ export const MovieForm = () => {
                 </div>
             </fieldset>
 
-            <fieldset>
+            {/* <fieldset>
                 <div className="form-group">
                     <label htmlFor="suspect">Suspect: </label>
                     <select type="select" name="suspectId" required autoFocus className="form-control"
@@ -148,7 +149,7 @@ export const MovieForm = () => {
                         }))}
                     </select>
                 </div>
-            </fieldset>
+            </fieldset> */}
 
             <button type="submit"
                 onClick={(evt) => {
@@ -164,7 +165,7 @@ export const MovieForm = () => {
                         director: currentMovie.director,
                         rating: currentMovie.rating,
                         movieImageUrl: currentMovie.movieImageUrl,
-                        suspectId: parseInt(currentMovie.suspectId)
+                        // suspectId: parseInt(currentMovie.suspectId)
                     })
                         // Send POST request to your API
 

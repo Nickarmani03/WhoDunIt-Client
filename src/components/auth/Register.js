@@ -7,7 +7,7 @@ export const Register = () => {
   const lastName = useRef();
   const email = useRef();
   const bio = useRef();
-  const profile_image_url = useRef();
+  const profileImageUrl = useRef();
   const username = useRef();
   const password = useRef();
   const verifyPassword = useRef();
@@ -23,7 +23,7 @@ export const Register = () => {
         first_name: firstName.current.value,
         last_name: lastName.current.value,
         bio: bio.current.value,
-        profile_image_url: profile_image_url.current.value,
+        profile_image_url: profileImageUrl.current.value,
         email: email.current.value,
         password: password.current.value,
         created_on: new Date().toISOString().slice(0, 10),
@@ -88,9 +88,9 @@ export const Register = () => {
           <input ref={verifyPassword} type="password" name="verifyPassword" className="form-control" placeholder="Verify password" required />
         </fieldset>
         <fieldset>
-          <label htmlFor="profile_image_url"> Choose an Image: </label>
+          <label htmlFor="profileImageUrl"> Choose an Image: </label>
           <input
-            ref={profile_image_url} type="profile_image_url" name="profile_image_url"
+            ref={profileImageUrl} type="profileImageUrl" name="profileImageUrl"
             className="form-control" placeholder="Profile Image"
             required />
         </fieldset>
