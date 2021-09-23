@@ -7,6 +7,9 @@ import { EditMovieForm } from "./movie/EditMovieForm.js"
 import { MovieNightList } from "./movie_nights/MovieNightList.js"
 import { MovieNightProvider } from "./movie_nights/MovieNightProvider.js"
 import { MovieNightForm } from "./movie_nights/MovieNightForm.js"
+import { MovieSuspectList } from "./movie_suspects/MovieSuspectList.js"
+import { MovieSuspectProvider } from "./movie_suspects/MovieSuspectProvider.js"
+import { MovieSuspectForm } from "./movie_suspects/MovieSuspectForm.js"
 import { ProfileProvider } from "./auth/ProfileProvider.js"
 import { SuspectList } from "./suspect/SuspectList.js"
 import { SuspectProvider } from "./suspect/SuspectProvider.js"
@@ -31,19 +34,15 @@ export const ApplicationViews = () => {
       </LandingProvider>
 
       <MovieProvider>
-
         <Route exact path="/movie">
           <MovieList />
         </Route>
-
         <Route exact path="/movies/new">
           <MovieForm />
         </Route>
-
         <Route exact path="/movies/:movieId(\d+)/edit">
           <EditMovieForm />
         </Route>
-
       </MovieProvider>
 
       <MovieNightProvider>
@@ -56,6 +55,22 @@ export const ApplicationViews = () => {
           </Route>
         </MovieProvider>
       </MovieNightProvider>
+
+      <MovieSuspectProvider>
+        <SuspectProvider>
+          <MovieProvider>
+            <MovieNightProvider>
+              <Route exact path="/movie_suspect">
+                <MovieSuspectList />
+              </Route>
+              <Route exact path="/movie_suspect/new">
+                <MovieSuspectForm />
+              </Route>
+            </MovieNightProvider>
+          </MovieProvider>
+        </SuspectProvider>
+      </MovieSuspectProvider>
+
 
       <SuspectProvider>
         <Route exact path="/suspect">

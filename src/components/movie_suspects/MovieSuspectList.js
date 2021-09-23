@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom"
 export const MovieSuspectList = () => {
     const history = useHistory()
     const { movieSuspects, getMovieSuspects } = useContext(MovieSuspectContext)
-    
+
 
     useEffect(() => {
         getMovieSuspects()
@@ -20,16 +20,16 @@ export const MovieSuspectList = () => {
                     onClick={() => {
                         history.push({ pathname: "/movie_suspect/new" })
                     }}
-                >Schedule New Movie Suspect</button>
+                >Choose a Suspect Below</button>
             </header>
             {
                 movieSuspects.map(movie_suspect => {
-                    // const attending = profile.movieSuspects.some(evt => evt.id === movieSuspect.id)
+
                     return <section key={movie_suspect.suspect.name} className="registration">
-                        <div className="registration__movie">{movie_suspect.movie_night.id}</div>
-                        <div>{movie_suspect.description}</div>
-                        <div className="registration__movie">{movie_suspect.movie.name}</div>
-                        <div>Created by: {movie_suspect.creator.user.first_name} {movie_suspect.creator.user.last_name}</div>
+                        <div className="registration__movie">{movie_suspect.movie_night.title}</div>
+                        <div>I think  {movie_suspect.suspect.name} is totally the criminal.</div>
+                        <div className="registration__movie">Am I correct?   {movie_suspect.suspect.guilty.label}</div>
+                        <div>Chosen by: {movie_suspect.player.user.username} </div>
                     </section>
                 })
             }

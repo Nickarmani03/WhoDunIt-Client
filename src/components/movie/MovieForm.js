@@ -6,8 +6,8 @@ import "./Movie.css"
 export const MovieForm = () => {
     // Use the required context providers for data
 
-    const { createMovie, getGenres, genres,  } = useContext(MovieContext)
-// getSuspects, suspects
+    const { createMovie, getGenres, genres, } = useContext(MovieContext)
+    // getSuspects, suspects
 
     const history = useHistory()
 
@@ -22,12 +22,12 @@ export const MovieForm = () => {
         director: "",
         rating: "",
         movieImageUrl: "",
-        // suspectId: 0
+
     })
 
     useEffect(() => {
         getGenres()
-        // .then(getSuspects())
+
     }, [])
 
 
@@ -136,27 +136,13 @@ export const MovieForm = () => {
                 </div>
             </fieldset>
 
-            {/* <fieldset>
-                <div className="form-group">
-                    <label htmlFor="suspect">Suspect: </label>
-                    <select type="select" name="suspectId" required autoFocus className="form-control"
-                        value={currentMovie.suspectId} onChange={changeMovieState}>
-                        <option value="0">Select a Suspect</option>
-                        {suspects.map((suspect => {
-                            return <option key={suspect.id} value={suspect.id}>
-                                {suspect.name}
-                            </option>
-                        }))}
-                    </select>
-                </div>
-            </fieldset> */}
-
             <button type="submit"
                 onClick={(evt) => {
                     // Prevents form from being submitted
                     evt.preventDefault()
 
                     createMovie({//whats being passed to the back end
+
                         name: currentMovie.name,
                         year: currentMovie.year,
                         description: currentMovie.description,
@@ -165,7 +151,7 @@ export const MovieForm = () => {
                         director: currentMovie.director,
                         rating: currentMovie.rating,
                         movieImageUrl: currentMovie.movieImageUrl,
-                        // suspectId: parseInt(currentMovie.suspectId)
+
                     })
                         // Send POST request to your API
 

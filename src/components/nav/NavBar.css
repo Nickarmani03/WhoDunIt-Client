@@ -12,3 +12,32 @@
 .navbar__logo {
     max-height: 6rem;
 }
+
+.navbar {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: left;
+    overflow: hidden;
+    background-color: #310303;
+    color: #fff;
+    padding: 1em; 
+   
+  }
+  
+  .navbar__item {
+    flex-basis: 20%;
+    list-style-type: none;
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px; 
+    font-family: "Comfortaa", Arial, sans-serif;
+  }
+  
+  .navbar__link{
+    color: rgb(241, 239, 239);
+    text-shadow: #6b0707;
+  } 

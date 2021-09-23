@@ -6,7 +6,7 @@ import { useHistory } from 'react-router'
 export const MovieList = () => {
 
     const { movies, getMovies } = useContext(MovieContext)
-    
+
 
     const history = useHistory()
 
@@ -31,9 +31,9 @@ export const MovieList = () => {
 
                         return <section key={`movie--${movie.id}`} className="movie">
 
-                            
+
                             <div className="movie__image">
-                            <img src={movie.movie_image_url}></img></div>
+                                <img src={movie.movie_image_url}></img></div>
                             <div className="movie__name">Movie:  {movie.name} by {movie.director}</div>
 
                             <div className="movie__year">Created on:  {movie.year} </div>
@@ -44,8 +44,6 @@ export const MovieList = () => {
                             <div className="movie__genre">{movie.genre.label} </div>
 
                             <div className="movie__number_of_players">Number of players needed:   {movie.number_of_players} </div>
-
-                            {/* <div className="movie__suspect">Who did it?:  {movie.suspect.name}</div> */}
 
                             <div className="movie__player">This move was added by:   {movie.player.user.username} </div>
 

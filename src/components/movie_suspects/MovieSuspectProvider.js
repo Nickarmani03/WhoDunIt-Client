@@ -26,7 +26,6 @@ export const MovieSuspectProvider = (props) => {
             .then(getMovieSuspects)
     }
 
-    
 
     return (
         <MovieSuspectContext.Provider value={

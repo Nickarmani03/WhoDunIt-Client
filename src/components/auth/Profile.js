@@ -34,7 +34,7 @@ export const Profile = () => {
                 </header>
             </section>
             <section className="profile__registrations">
-               
+
                 <div className="registrations">
                     {
                         profile.movie_nights?.map(movie_night => {
