@@ -15,6 +15,8 @@ export const MovieList = () => {
         getMovies()
     }, [])
 
+    // const player = parseInt(localStorage.getItem("whodunit_token"))
+
     return (
         <>
             <header className="movie__new">
@@ -24,7 +26,7 @@ export const MovieList = () => {
                         history.push({ pathname: "/movies/new" })
                     }}>Add New Movie</button>
             </header>
-
+            {/* map inside of JSX when you need to iterate an array of objects and convert them into an array of JSX. passed to an device object */}
             <article className="movies">
                 {
                     movies.map(movie => {
@@ -48,7 +50,7 @@ export const MovieList = () => {
                             <div className="movie__player">This move was added by:   {movie.player.user.username} </div>
 
                             <div className="movie__edit">
-                                <button className="btn btn-3"
+                            <button className="btn btn-3"
                                     onClick={() => {
                                         history.push(`/movies/${movie.id}/edit`)
                                     }}>Edit</button>

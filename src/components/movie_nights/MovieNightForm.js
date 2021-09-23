@@ -14,7 +14,7 @@ export const MovieNightForm = () => {
 
     const history = useHistory()
 
-    // Component stat
+    // Component state
     const [currentMovieNight, setMovieNight] = useState({
 
         creator: localStorage.getItem("whodunit_token"),

@@ -6,7 +6,7 @@ import "./Movie.css"
 export const MovieForm = () => {
     // Use the required context providers for data
 
-    const { createMovie, getGenres, genres, } = useContext(MovieContext)
+    const { createMovie, getGenres, genres} = useContext(MovieContext)
     // getSuspects, suspects
 
     const history = useHistory()
@@ -25,12 +25,10 @@ export const MovieForm = () => {
 
     })
 
+   
     useEffect(() => {
-        getGenres()
-
+        getGenres() 
     }, [])
-
-
 
     const changeMovieState = (event) => {
         const newMovie = { ...currentMovie }// Create copy

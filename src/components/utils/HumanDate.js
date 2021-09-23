@@ -5,6 +5,9 @@ export const HumanDate = ({ date }) => {
             year: 'numeric',
             month: 'long',
             day: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
             timeZone: 'America/Chicago'
         })
-}
+}    
+

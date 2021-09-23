@@ -45,3 +45,16 @@
     color: white;
     font-size: 1rem;    
   }
+  .link--register {
+    text-align: center;
+    color: white;
+    border-radius: 35px;
+    background-color: rgba(0,0,0,.7);
+    border-radius: 5px;
+    font-size: 1.5rem;
+    padding: 5px;
+    margin: 1rem;
+    width: 550px;
+    margin-left: 550px;
+    
+}
