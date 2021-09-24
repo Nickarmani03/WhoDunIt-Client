@@ -7,7 +7,7 @@ export const EditMovieForm = () => {
     // Use the required context providers for data
 
     const { getGenres, genres, editMovie, getMovieById } = useContext(MovieContext)
-// , getSuspects, suspects
+
     const history = useHistory()
 
     const { movieId } = useParams();
@@ -18,24 +18,24 @@ export const EditMovieForm = () => {
         name: "",
         year: "",
         description: "",
-        genreId: 0,        
+        genreId: 0,
         numberOfPlayers: 0,
         director: "",
         rating: "",
         movieImageUrl: "",
-        // suspectId: 0
 
     })
 
     useEffect(() => {
-        getGenres() 
-        // .then(getSuspects())
+        getGenres()
+
     }, [])
 
     useEffect(() => {
         if (movieId) {
             getMovieById(movieId).then((movie) => {
                 setCurrentMovie({
+
                     id: parseInt(movieId),
                     name: movie.name,
                     year: movie.year,
@@ -45,7 +45,7 @@ export const EditMovieForm = () => {
                     director: movie.director,
                     rating: movie.rating,
                     movieImageUrl: movie.movie_image_url,
-                    // suspectId: movie.suspect.id,                    
+
                 })
             })
         }
@@ -141,23 +141,6 @@ export const EditMovieForm = () => {
                     />
                 </div>
             </fieldset>
-{/* 
-            
-
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="suspect">Suspect: </label>
-                    <select type="select" name="suspectId" required autoFocus className="form-control"
-                        value={currentMovie.suspectId} onChange={changeMovieState}>
-                        <option value="0">Select a Suspect</option>
-                        {suspects.map((suspect => {
-                            return <option key={suspect.id} value={suspect.id}>
-                                {suspect.name}
-                            </option>
-                        }))}
-                    </select>
-                </div>
-            </fieldset> */}
 
             <button
                 type="submit"
@@ -176,7 +159,7 @@ export const EditMovieForm = () => {
                         director: currentMovie.director,
                         rating: currentMovie.rating,
                         movieImageUrl: currentMovie.movieImageUrl,
-                        // suspectId: parseInt(currentMovie.suspectId)
+
                     })
                         // Send POST request to your API
 

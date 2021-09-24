@@ -1,13 +1,4 @@
-.MovieNightForm {
-    margin-left: 35%;
-    margin-right:25%;
-    width: 30%;
-    text-align: center;
-    color: white;
-    font-size: 1rem;    
-  }
-
-  .movie_nights__header {
+.movie_suspects__header {
     margin-left: 10%;
     margin-right:25%;
     width: 80%;
@@ -16,7 +7,16 @@
     font-size: 1rem;    
   }
 
-.MovieNightForm__title {
+  .MovieSuspectForm {
+    margin-left: 35%;
+    margin-right:25%;
+    width: 30%;
+    text-align: center;
+    color: white;
+    font-size: 1rem;    
+  }
+
+.MovieSuspectForm__title {
     height: 2em;
     padding-top: 1em;
     padding-bottom: 1em;
@@ -26,6 +26,6 @@
     border-bottom: 3px solid #f51111;
  }
 
- .movie_nights{
+ .movie_suspects{
   color: #fff;
  }

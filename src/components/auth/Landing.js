@@ -7,6 +7,7 @@ export const Landing = () => {
 
     const { landing, getLanding } = useContext(LandingContext)
 
+    // console.log(landing)
 
     useEffect(() => {
         getLanding();

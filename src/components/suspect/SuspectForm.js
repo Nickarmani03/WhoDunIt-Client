@@ -6,7 +6,7 @@ import "./Suspect.css"
 export const SuspectForm = () => {
     // Use the required context providers for data
 
-    const { createSuspect, getMovies, movies, guilts, getGuilts, } = useContext(SuspectContext)
+    const { createSuspect, getMovies, movies, guilts, getGuilts } = useContext(SuspectContext)
 
 
     const history = useHistory()
@@ -24,7 +24,7 @@ export const SuspectForm = () => {
 
     useEffect(() => {
         getGuilts()
-        .then(getMovies())
+            .then(getMovies())
     }, [])
 
 
@@ -92,7 +92,7 @@ export const SuspectForm = () => {
 
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="title">Type of Movie: </label>
+                    <label htmlFor="name">Type of Movie: </label>
                     <select type="select" name="movieId" required autoFocus className="form-control"
                         value={currentSuspect.movieId} onChange={changeSuspectState}>
                         <option value="0">Select a Movie</option>
@@ -116,7 +116,7 @@ export const SuspectForm = () => {
                         description: currentSuspect.description,
                         movieId: parseInt(currentSuspect.movieId),
                         suspectImageUrl: currentSuspect.suspectImageUrl,
-                        
+
                     })
                         // Send POST request to your API
 

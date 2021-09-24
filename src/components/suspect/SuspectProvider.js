@@ -71,7 +71,6 @@ export const SuspectProvider = (props) => {
             .then(getSuspects)
     }
 
-
     return (
         <SuspectContext.Provider value={{ movies, getMovies, suspects, getSuspects, editSuspect, guilts, getGuilts, createSuspect, getSuspectById }} >
             {props.children}
